@@ -1,2 +1,2 @@
-# web2016
-Trabalho da disciplina de Desenvolvimento WEB.
+# Fibrando
+Gerencie seus treinos e avaliações físicas.
