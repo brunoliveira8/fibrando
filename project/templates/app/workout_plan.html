@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content%}
+{% csrf_token %}
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-panel">
+        {% verbatim %}
+        <div ng-app="myApp" ng-controller="ExerciseCtrl">
+           <div class="table-responsive">
+            <table class="table table-striped table-advance table-hover table-responsive">
+                <h4><i class="fa fa-angle-right"></i> Exercicios
+                  <div class="pull-right" style="padding-right: 10px;">
+                      <button  id="div-A" type="button" class="btn btn-round btn-theme" ng-click="div='A'" ng-hide="div_true.indexOf('A') == -1">A</button>
+                      <button  id="div-B" type="button" class="btn btn-round btn-theme02" ng-click="div='B'" ng-hide="div_true.indexOf('B') == -1">B</button>
+                      <button id="div-C"  type="button" class="btn btn-round btn-theme03" ng-click="div='C'" ng-hide="div_true.indexOf('C') == -1">C</button>
+                      <button id="div-D" type="button" class="btn btn-round btn-theme04" ng-click="div='D'" ng-hide="div_true.indexOf('D') == -1">D</button>
+                      <button  id="div-E" type="button" class="btn btn-round btn-warning" ng-click="div='E'" ng-hide="div_true.indexOf('E') == -1">E</button>
+                  </div>
+                </h4>
+                <hr>
+                <thead>
+                  <tr>
+                  <th>Exercicio</th>
+                  <th>Peso</th>
+                  <th>Repeticoes</th>
+                  <th>Séries</th>
+                  <th>Divisao</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="exercise in exercises | filter : {division: div} | orderBy: 'division'">
+                  <td>{{ exercise.task.name }}</td>
+                  <td>{{ exercise.weight }}</td>
+                  <td>{{ exercise.repetition }}</td>
+                  <td>{{ exercise.sets }}</td>
+                  <td>{{ exercise.division }}</td>
+                  </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        {% endverbatim %}
+      </div><!--/content-panel -->
+    </div><!-- /col-md-12 -->
+  </div>
+
+{% endblock %}

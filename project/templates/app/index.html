@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content%}
+
+	{% if group == "athlete" %}   
+	<div class="col-lg-12 main-chart">  
+	  <div class="row mt">
+
+	  <div class="col-md-6 mb">
+			<!-- WHITE PANEL - TOP USER -->
+			<div class="white-panel pn">
+				<div class="white-header">
+					<div class="profile-01 centered">
+					<a href= "/workout_plan/"><p>TREINO</p></a>
+				</div>
+				</div>
+				<i style="font-size: 60px" class="fa fa-book fa-5x"></i>
+			</div>
+		</div><!-- /col-md-4 -->
+	  	
+  		<div class="col-md-6 mb">
+			<!-- WHITE PANEL - TOP USER -->
+			<div class="white-panel pn">
+				<div class="white-header">
+					<div class="profile-01 centered">
+					<a href= "/screenings/"><p>AVALIÇÕES FÍSICAS</p></a>
+				</div>
+				</div>
+				<i style="font-size: 60px" class="fa fa-bar-chart fa-5x"></i>
+			</div>
+		</div><!-- /col-md-4 -->
+	  	
+	                
+	</div><!-- /row -->
+
+
+	<div class="row mt">
+		<div class="col-md-6 mb">
+			<!-- WHITE PANEL - TOP USER -->
+			<div class="white-panel pn">
+				<div class="white-header">
+					<div class="profile-01 centered">
+					<a href= "/tracker/"><p>MEU PESO</p></a>
+				</div>
+				</div>
+				<i style="font-size: 60px" class="fa fa-tachometer fa-5x"></i>
+			</div>
+		</div><!-- /col-md-4 -->
+		<div class="col-md-6 mb">
+			<!-- WHITE PANEL - TOP USER -->
+			<div class="white-panel pn">
+				<div class="white-header">
+					<div class="profile-01 centered">
+					<a href= "/buddy_match/"><p>BUDDY MATCH</p></a>
+				</div>
+				</div>
+				<i style="font-size: 60px" class="fa fa-users fa-5x"></i>
+			</div>
+		</div><!-- /col-md-4 -->  
+
+
+	
+	              	
+
+	</div><!-- /row -->
+
+	</div><!-- /col-lg-9 END SECTION MIDDLE -->
+
+	{% endif %}
+
+	{% if group == "trainer" %}   
+	<div class="col-lg-12 main-chart">  
+	<div class="row mt">
+		
+	<div class="col-md-6 mb">
+		<!-- WHITE PANEL - TOP USER -->
+		<div class="white-panel pn">
+			<div class="white-header">
+				<div class="profile-01 centered">
+				<a href= "/alunos/"><p>ALUNOS</p></a>
+			</div>
+			</div>
+			<i style="font-size: 60px" class="fa fa-users fa-5x"></i>
+		</div>
+	</div><!-- /col-md-4 -->      
+
+	<div class="col-md-6 mb">
+		<!-- WHITE PANEL - TOP USER -->
+		<div class="white-panel pn">
+			<div class="white-header">
+				<div class="profile-01 centered">
+				<a href= "/members/"><p>ENVIAR MENSAGEM</p></a>
+			</div>
+			</div>
+			<i style="font-size: 60px" class="fa fa-envelope fa-5x"></i>
+		</div>
+	</div><!-- /col-md-4 -->            	     	
+
+	</div><!-- /col-lg-9 END SECTION MIDDLE -->  
+		
+	{% endif %}        
+
+
+	{% if group == "admin" %}   
+	<div class="col-lg-12 main-chart">  
+	<div class="row mt">
+
+	<div class="col-md-6 mb">
+		<!-- WHITE PANEL - TOP USER -->
+		<div class="white-panel pn">
+			<div class="white-header">
+				<div class="profile-01 centered">
+				<a href= "/admin/"><p>DASHBOARD</p></a>
+			</div>
+			</div>
+			<i style="font-size: 60px" class="fa fa-database fa-5x"></i>
+		</div>
+	</div><!-- /col-md-4 -->
+		
+
+	<div class="col-md-6 mb">
+		<!-- WHITE PANEL - TOP USER -->
+		<div class="white-panel pn">
+			<div class="white-header">
+				<div class="profile-01 centered">
+				<a href= "/plan_manage/"><p>ACCOUNTS MANAGEMENT</p></a>
+			</div>
+			</div>
+			<i style="font-size: 60px" class="fa fa-wrench fa-5x"></i>
+		</div>
+	</div><!-- /col-md-4 -->
+		
+	                 	
+	</div><!-- /row -->
+
+	</div><!-- /col-lg-9 END SECTION MIDDLE -->  
+		
+	{% endif %}        
+	      
+	  
+	{% block script %}
+	{% endblock %}
+	
+	{% endblock %}

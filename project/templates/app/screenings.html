@@ -1,0 +1,159 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content%}
+  <div class="row mt">
+    <div class="col-lg-12">
+      <div class="form-panel">
+
+        <div ng-app="myApp" ng-controller="BodyScreeningCtrl">
+          <h4 class="mb"><i class="fa fa-angle-right"></i> Últimas Avaliações</h4>
+
+          <table class="table table-striped">
+            <tr>
+                <th>Criado em:</th>
+                <th>Peso</th>
+                <th>Altura</th>
+                <th>IMC</th>
+                <th>Percentual de gordura</th>
+                <th>Medidas</th>
+                {% if group == 'trainer' %}
+                <th></th>
+                {% endif %}
+              </tr>
+              {% verbatim %}
+              <tr  ng-repeat="sc in screenings | orderBy: '-criado_em'  ">
+                <td align="left">{{ sc.criado_em  | date:'dd/MM/yyyy '  }}</td>
+                <td align="left">{{ sc.peso }} kg</td>
+                <td align="left">{{ sc.altura }}</td>
+                <td align="left">{{ sc.imc }}</td>
+                <td align="left">{{ sc.bodyfat }} %</td>
+
+                <td align="left">
+                   <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-theme02 btn-sm" data-toggle="modal" data-target="#myModal-{{sc.id}}">
+                      <i class="fa fa-eye"></i>
+                    </button>
+                </td>
+
+                {% endverbatim %}
+                {% if group == 'trainer' %}
+                <td align="left">
+                    <button class="btn btn-danger btn-sm" ng-click="deleteScreening(sc.id)"><span class="glyphicon glyphicon-trash"></span></button>
+                </td>
+                {% endif %}
+              </tr>
+          </table>
+
+             {% verbatim %}
+            <div ng-repeat="sc in screenings">
+              <div class="modal fade" id="myModal-{{sc.id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="myModalLabel">Medidas de  {{sc.criado_em  | date:'dd/MM/yyyy '}} </h4>
+                    </div>
+                    <div class="modal-body">
+                      <form editable-form name="tableform" onaftersave="updateScreening($data, sc.id)">
+                      <table class="table table-striped">
+                        <tr>
+                            <th>Perimetria</th>
+                            <th>Peitoral</th>
+                            <th>Abdomem</th>
+                        </tr>
+                        <tr>
+                            <td align="left">
+                               <span editable-text="sc.perimetria " e-name="perimetria" e-form="tableform">
+                                  {{ sc.perimetria   || 'vazio' }}
+                                </span>
+                            </td>
+                            <td align="left">
+                              <span editable-text="sc.peitoral " e-name="peitoral" e-form="tableform">
+                                  {{ sc.peitoral   || 'vazio' }}
+                              </span>
+                            </td>
+                            <td align="left">
+                              <span editable-text="sc.abdomen" e-name="abdomen" e-form="tableform">
+                                  {{ sc.abdomen   || 'vazio' }}
+                              </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Braço direito</th>
+                            <th>Braço esquerdo</th>
+                            <th>Cintura</th>
+                        </tr>
+                        <tr>
+                            <td align="left">
+                              <span editable-text="sc.braco_direito" e-name="braco_direito" e-form="tableform">
+                                  {{ sc.braco_direito   || 'vazio' }}
+                              </span>
+                            </td>
+                            <td align="left">
+                                  <span editable-text="sc.braco_esquerdo" e-name="braco_esquerdo" e-form="tableform">
+                                      {{ sc.braco_esquerdo   || 'vazio' }}
+                                  </span>
+                            </td>
+                            <td align="left">
+                              <span editable-text="sc.cintura" e-name="cintura" e-form="tableform">
+                                    {{ sc.cintura   || 'vazio' }}
+                              </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Quadril</th>
+                            <th>Coxa direita</th>
+                            <th>Coxa esquerda</th>
+                        </tr>
+                        <tr>
+                            <td align="left">
+                                  <span editable-text="sc.quadril" e-name="quadril" e-form="tableform">
+                                    {{ sc.quadril   || 'vazio' }}
+                                  </span>
+                            </td>
+                            <td align="left">
+                              <span editable-text="sc.coxa_direita" e-name="coxa_direita" e-form="tableform">
+                                    {{ sc.coxa_direita   || 'vazio' }}
+                              </span>
+                            </td>
+                            <td align="left">
+                              <span editable-text="sc.coxa_direita" e-name="coxa_direita" e-form="tableform">
+                                    {{ sc.coxa_esquerda   || 'vazio' }}
+                              </span>
+                            </td>
+                        </tr>
+                      </table>
+                            {% endverbatim %}
+                          <!-- buttons -->
+                          {% if group == 'trainer' %}
+                          <div class="btn-edit">
+                            <button type="button" class="btn btn-primary" ng-show="!tableform.$visible" ng-click="tableform.$show()">
+                              <i class="fa fa-pencil-square-o"></i>Editar
+                            </button>
+                          </div>
+                          <div class="btn-form" ng-show="tableform.$visible">
+                            <button type="submit" ng-disabled="tableform.$waiting" class="btn btn-success"><i class="fa fa-check"></i>Salvar</button>
+                            <button type="button" ng-disabled="tableform.$waiting" ng-click="tableform.$cancel()" class="btn btn-warning"><i class="fa fa-ban"></i>Cancelar</button>
+                          </div>
+                          {% endif %}
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+             </div>
+
+          {% if group == 'trainer' %}
+          <div>
+            <button type="button" class="btn btn-success btn-sm" ng-click="novaAvaliacao()"> Nova Avaliação</button>
+          </div>
+          {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

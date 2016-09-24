@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content%}
+  <div class="row mt"><div class="col-lg-12"><div class="form-panel">
+      <h4 class="mb"><i class="fa fa-angle-right"></i> Meu peso</h4>
+      <form class="form-horizontal style-form" method="post" action="/tracker/"
+          enctype="multipart/form-data">
+          <div class="form-group">
+            {% csrf_token %}
+            <label class="col-sm-2 col-sm-2 control-label">Peso atual: </label>
+            <div class="col-lg-10">
+                <input type="number" class="form-control" min=1 max=500 name="currentWeight" value={{tracker.currentWeight}} />  (atualizado em {{tracker.currentWeightDate| date:"d M Y"}})<br><br>
+            </div>
+
+            <label class="col-sm-2 col-sm-2 control-label">Peso anterior: </label>
+            <div class="col-lg-10"> <input class="form-control" id="disabledInput" placeholder= {{tracker.previousWeight}} disabled/> (atualizado em {{tracker.previousWeightDate| date:"d M Y"}})<br><br>
+            </div><br/><br/>
+
+             <label class="col-sm-2 col-sm-2 control-label">Peso ideal: </label>
+             <div class="col-lg-10">
+             <input class="form-control" type="number" min=1 max=500 name="goalWeight" value={{tracker.goalWeight}} size="50" />  (atualizado em {{tracker.currentWeightDate | date:"d M Y"}})<br><br></div><p style= "visibility: hidden">{{tracker.currentWeightDate}}</p>
+
+            <label class="col-sm-2 col-sm-2 control-label">Progresso: </label>
+             <div class="col-lg-10">
+            <div class="progress">
+              {%if progress >= 100 %}
+                <div class="progress-bar progress-bar-striped progress-bar-success active" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="200" style="width: {{progress}}%;">{{progress}}%
+              {%else%}
+                <div class="progress-bar progress-bar-striped progress-bar-danger active" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="200" style="width: {{progress}}%;">{{progress}}%
+                {%endif%}
+            </div></div></div></div>
+            <!-- Display each form. The as_p method wraps each element in a paragraph
+                 (<p>) element. This ensures each element appears on a new line,
+                 making everything look neater. -->
+
+            {{ user_form.as_p }}
+            <!-- Submit Button -->
+            <input type="submit" class="btn btn-primary" name="submit" value="Salvar" />
+          </div>
+
+        </form>
+</div></div></div>
+
+
+
+{% endblock %}

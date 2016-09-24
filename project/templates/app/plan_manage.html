@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content%}
+{% csrf_token %}
+
+          <h3 class="mb"><i class="fa fa-angle-right"></i>New Accounts</h3>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Request</th>    
+                    <th align="left">Delete</th>  
+                </tr>
+              </thead>
+              <tbody>
+                
+                 {% for msg in messages %}
+                        <tr>
+                            <td align="left">{{msg.src}}</td>
+                            <td align="left">{{msg.body}}</td>
+                            <form method="post" action="/delete_plan_msg/" enctype="multipart/form-data">
+                                {% csrf_token %}
+                               <td align="left"> <button  name ='delete' type='submit' value='{{msg.id}}'class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></button> </td>
+                            </form>
+                           
+
+                        </tr>
+                {% endfor %}         
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+    
+{% endblock %}

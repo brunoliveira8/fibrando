@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block extra_css %}
+<style>
+
+#full-screen-background-image {
+  z-index: -999;
+  min-height: 100%;
+  min-width: 1024px;
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+</style>
+
+{%endblock%}
+
+{% block content%}
+      <img alt="full screen background image" src="{% static "img/gym-bg.jpg" %}" id="full-screen-background-image" />
+
+      <div id="login-page"  class = "col-md-9">
+              <form class="form-login" method="post" action="/accounts/login/">
+                {% csrf_token %}
+                <h2 class="form-login-heading">Login</h2>
+                <div class="login-wrap">
+                    <input type="text" name="username" class="form-control" placeholder="User ID" autofocus>
+                    <br>
+                    <input type="password" name="password" class="form-control" placeholder="Password">
+                      {% if invalid %}
+                            <br><p align = "center" style="color : red ">Usuário ou senha incorretos.</p>
+                         {% endif %}
+                    <br>
+                    <input type="submit" class="btn btn-theme btn-block"  value="ENTRAR" />
+                    <hr>
+
+                    <div class="registration">
+
+                        Ainda não possui uma conta?<br/>
+                        <a class="" href="/accounts/register/">
+                            Criar uma conta agora
+                        </a>
+                    </div>
+
+                </div>
+
+              </form>
+      </div>
+
+{% endblock %}

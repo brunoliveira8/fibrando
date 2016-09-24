@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content%}
+    {% if registered %}
+        <strong>Thank you for signing up!</strong>
+        <a href="/index/">Return to the homepage.</a><br />
+    {% else %}
+        <div class="row mt">
+            <div class="col-lg-10">
+                <div class="form-panel">
+                    <h4 class="mb"><i class="fa fa-angle-right"></i> Registrar Conta</h4>
+                    <form class="form-horizontal style-form" method="post" action="/accounts/register/" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                        {{ form.as_p }}
+
+                        <!-- Provide a button to click to submit the form. -->
+                        <input type="submit" class="btn btn-primary" name="submit" value="Registrar" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
