@@ -67,3 +67,5 @@ include/
 share/
 
 pip-selfcheck.json
+
+.tags*

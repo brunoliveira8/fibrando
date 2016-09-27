@@ -65,6 +65,7 @@ angular.module('myApp')
 
 
     $scope.username = $location.absUrl().split('/')[4];
+
     $scope.getExercises($scope.username);
     $scope.divs = ['A', 'B', 'C', 'D', 'E'];
 
@@ -74,6 +75,7 @@ angular.module('myApp')
 
     WorkoutPlan.get({username: $scope.username}, function(workout_plan){
             $scope.workout_plan = workout_plan;
+            console.log($scope.username);
         });
 
   });
