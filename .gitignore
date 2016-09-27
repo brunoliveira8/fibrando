@@ -64,3 +64,6 @@ target/
 bin/
 local/
 include/
+share/
+
+pip-selfcheck.json
