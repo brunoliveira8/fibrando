@@ -67,15 +67,16 @@
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
 
-              	  <p class="centered"><a href="profile.html"><i></i><img src="{% static "img/ui-icon.png" %}" class="img-circle" width="60"></a></p>
+              	  <p class="centered"><a href="/edit/"><i></i><img src="{% static "img/ui-icon.png" %}" class="img-circle" width="60"></a></p>
               	  <h5 class="centered">{{ user.first_name }} {{ user.last_name }}</h5>
-
+                  <!--
                   <li class="mt">
                       <a href="/index/">
                           <i class="fa fa-desktop"></i>
                           <span>Home</span>
 
                       </a>
+                    -->
                   </li>
                   {% if group == "athlete" %}
 

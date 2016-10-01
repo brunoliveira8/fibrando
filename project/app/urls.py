@@ -4,7 +4,7 @@ from app import views
 
 urlpatterns = patterns('',
         url(r'^$', views.index),
-        url(r'^index/', views.index),
+        url(r'^index/', views.index, name="index"),
         url(r'^edit/', views.edit),
         url(r'^tracker/', views.tracker),
         #url(r'^members/', views.members),

@@ -35,6 +35,12 @@ def index(request):
     # Note that the first parameter is the template we wish to use.
 
     context_dict = {'boldmessage': "Excuse us, programmers working :)", 'group': group}
+
+    if group == "athlete":
+        return HttpResponseRedirect("/workout_plan/")
+    elif group == "trainer":
+        return HttpResponseRedirect("/alunos/")
+
     return render(request, 'app/index.html', context_dict)
 
 @login_required
