@@ -8,38 +8,40 @@ django.setup()
 from app.models import Task, MailBox, Gym
 from django.contrib.auth.models import Permission, Group, User
 from django.contrib.contenttypes.models import ContentType
+import csv
 
 
 
 def populate():
     Task.objects.all().delete()
-    add_task(name="Esteira")
-    add_task(name="Elíptico")
-    add_task(name="Bicicleta")
-    add_task(name="Rosca Inversa")
-    add_task(name="Rosca Concentrada")
-    add_task(name="Rosca Martelo")
-    add_task(name="Rosca Direta")
-    add_task(name="Rosca Alternada")
-    add_task(name="Remada Unilateral")
-    add_task(name="Puxada na Frente com Triângulo e Polia Alta")
-    add_task(name="Puxada na Frente com Polia Alta")
-    add_task(name="Puxada Alta com Braços Estendidos")
-    add_task(name="Chest fly")
-    add_task(name="Crucifixo")
-    add_task(name="Crossover")
-    add_task(name="Supino Inclinado")
-    add_task(name="Supino Reto")
-    add_task(name="Glúteos Quatro Apoios e Perna Estendida")
-    add_task(name="Abdução de Quadril")
-    add_task(name="Mesa Flexora")
-    add_task(name="Cadeira Extensora")
-    add_task(name="Cadeira Abdutora")
-    add_task(name="Leg Press Inclinado")
-    add_task(name="Remada Alta")
-    add_task(name="Desenvolvimento com Halteres")
-    add_task(name="Elevação Frontal")
-    add_task(name="Elevação Lateral")
+    # add_task(name="Esteira")
+    # add_task(name="Elíptico")
+    # add_task(name="Bicicleta")
+    # add_task(name="Rosca Inversa")
+    # add_task(name="Rosca Concentrada")
+    # add_task(name="Rosca Martelo")
+    # add_task(name="Rosca Direta")
+    # add_task(name="Rosca Alternada")
+    # add_task(name="Remada Unilateral")
+    # add_task(name="Puxada na Frente com Triângulo e Polia Alta")
+    # add_task(name="Puxada na Frente com Polia Alta")
+    # add_task(name="Puxada Alta com Braços Estendidos")
+    # add_task(name="Chest fly")
+    # add_task(name="Crucifixo")
+    # add_task(name="Crossover")
+    # add_task(name="Supino Inclinado")
+    # add_task(name="Supino Reto")
+    # add_task(name="Glúteos Quatro Apoios e Perna Estendida")
+    # add_task(name="Abdução de Quadril")
+    # add_task(name="Mesa Flexora")
+    # add_task(name="Cadeira Extensora")
+    # add_task(name="Cadeira Abdutora")
+    # add_task(name="Leg Press Inclinado")
+    # add_task(name="Remada Alta")
+    # add_task(name="Desenvolvimento com Halteres")
+    # add_task(name="Elevação Frontal")
+    # add_task(name="Elevação Lateral")
+    add_tasks()
 
     add_group('athlete')
     add_group('trainer')
@@ -54,6 +56,12 @@ def add_task(name):
     a = Task.objects.get_or_create(name = name)[0]
     a.save()
     return a
+
+def add_tasks():
+    with open('exercicios.csv', 'rb') as f:
+        reader = csv.reader(f)
+        for row in reader:
+            add_task(row[0])
 
 def add_group(name):
     g = Group.objects.get_or_create(name = name)[0]
