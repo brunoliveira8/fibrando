@@ -391,7 +391,7 @@ def delete_plan_msg(request):
 
 
 @login_required
-@user_passes_test(lambda u: u.groups.filter(Q(name='trainer')).count() == 1, login_url='/permission_denied/')
+@user_passes_test(lambda u: u.groups.filter(Q(name='athlete') | Q(name='trainer')).count() == 1, login_url='/permission_denied/')
 def create_screening(request, username):
 
     if request.user.is_superuser:
@@ -407,7 +407,7 @@ def create_screening(request, username):
     workout_plan = WorkoutPlan.objects.get(user = user, is_current = True)
 
     #verifica se a requisição é feita pelo professor do aluno
-    if athlete.personal.user == request.user:
+    if athlete.personal.user == request.user or request.user == user:
 
         if request.method == 'POST':
             screening_form = BodyScreeningForm(data=request.POST)

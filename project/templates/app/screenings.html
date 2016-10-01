@@ -118,7 +118,7 @@
                               </span>
                             </td>
                             <td align="left">
-                              <span editable-text="sc.coxa_direita" e-name="coxa_direita" e-form="tableform">
+                              <span editable-text="sc.coxa_esquerda" e-name="coxa_esquerda" e-form="tableform">
                                     {{ sc.coxa_esquerda   || 'vazio' }}
                               </span>
                             </td>
@@ -126,7 +126,7 @@
                       </table>
                             {% endverbatim %}
                           <!-- buttons -->
-                          {% if group == 'trainer' %}
+
                           <div class="btn-edit">
                             <button type="button" class="btn btn-primary" ng-show="!tableform.$visible" ng-click="tableform.$show()">
                               <i class="fa fa-pencil-square-o"></i>Editar
@@ -136,7 +136,7 @@
                             <button type="submit" ng-disabled="tableform.$waiting" class="btn btn-success"><i class="fa fa-check"></i>Salvar</button>
                             <button type="button" ng-disabled="tableform.$waiting" ng-click="tableform.$cancel()" class="btn btn-warning"><i class="fa fa-ban"></i>Cancelar</button>
                           </div>
-                          {% endif %}
+
                         </form>
                     </div>
                     <div class="modal-footer">
@@ -147,11 +147,11 @@
               </div>
              </div>
 
-          {% if group == 'trainer' %}
+
           <div>
             <button type="button" class="btn btn-success btn-sm" ng-click="novaAvaliacao()"> Nova Avaliação</button>
           </div>
-          {% endif %}
+
       </div>
     </div>
   </div>

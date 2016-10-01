@@ -10,7 +10,7 @@ angular.module('myApp')
 
     $scope.addScreening = function(){
         $scope.new_exercise = new Exercise();
-        $scope.new_exercise.task = $scope.selectedTask;;
+        $scope.new_exercise.task = $scope.selectedTask;
         $scope.new_exercise.weight = $scope.peso;
         $scope.new_exercise.repetition = $scope.repet;
         $scope.new_exercise.sets = $scope.series;
