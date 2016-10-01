@@ -122,8 +122,9 @@ class RegisterForm(RegistrationForm):
     )
     group = forms.ChoiceField(widget=forms.Select(attrs={'class': "form-control"}),choices=GROUPS, required=True, label='Tipo de conta')
 
-    gym = forms.ModelChoiceField(label="Academia", queryset=Gym.objects.all(), widget=forms.Select(attrs={'class': "form-control"}))
+    #gym = forms.ModelChoiceField(label="Academia", queryset=Gym.objects.all(), widget=forms.Select(attrs={'class': "form-control"}))
 
     class Meta:
         model = User
-        fields = ('username','password1','password2', 'email', 'gender', 'group', 'gym')
+        #fields = ('username','password1','password2', 'email', 'gender', 'group', 'gym')
+        fields = ('username','password1','password2', 'email', 'gender', 'group')

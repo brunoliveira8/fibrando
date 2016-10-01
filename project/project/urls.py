@@ -6,8 +6,8 @@ from app.views import *
 from app.forms import RegisterForm
 
 
-admin.site.site_title = 'MANAGYMENT'
-admin.site.site_index = 'MANAGYMENT'
+admin.site.site_title = 'FIBRANDO'
+admin.site.site_index = 'FIBRANDO'
 admin.site.site_header = 'DASHBOARD'
 
 class MyRegistrationView(RegistrationView):

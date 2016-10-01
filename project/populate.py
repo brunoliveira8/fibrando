@@ -46,7 +46,7 @@ def populate():
 
     add_mail_box('admin')
 
-    add_gym('MANAGYMENT')
+    add_gym('FIBRANDO')
 
     print Task.objects.all()
 

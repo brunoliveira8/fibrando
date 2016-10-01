@@ -87,7 +87,7 @@ class PersonalTrainer(models.Model):
                                       choices=GENDERS,
                                       default=MALE)
 
-    gym = models.ForeignKey(Gym)
+    gym = models.ForeignKey(Gym, default=1)
 
     def __unicode__(self):
         if self.user.username:
@@ -145,7 +145,7 @@ class Athlete(models.Model):
 
     personal = models.ForeignKey(PersonalTrainer, blank=True, null = True)
 
-    gym = models.ForeignKey(Gym)
+    gym = models.ForeignKey(Gym, default=1)
 
     def __unicode__(self):
         if self.user.username:
@@ -200,8 +200,8 @@ def user_registered_callback(sender, user, request, **kwargs):
 
         athlete.gender = request.POST['gender']
 
-        gym = Gym.objects.get(pk=int(request.POST['gym']))
-        athlete.gym = gym
+        #gym = Gym.objects.get(pk=int(request.POST['gym']))
+        #athlete.gym = gym
 
         athlete.save()
     else:
