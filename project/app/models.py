@@ -143,7 +143,7 @@ class Athlete(models.Model):
 
     screenings = models.ManyToManyField(BodyScreening, null=True, blank = True)
 
-    personal = models.ForeignKey(PersonalTrainer, null = True)
+    personal = models.ForeignKey(PersonalTrainer, blank=True, null = True)
 
     gym = models.ForeignKey(Gym)
 

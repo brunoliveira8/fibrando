@@ -383,7 +383,7 @@ def permission_denied(request):
     return render(request, 'app/permission_denied.html', {'group' : group})
 
 @login_required
-@user_passes_test(lambda u: u.is_superuser, login_url='/permission_denied/')
+@user_passes_test(lambda u: u.groups.filter(Q(name='athlete') | Q(name='trainer') | Q(name='admin')).count() == 1, login_url='/permission_denied/')
 def delete_plan_msg(request):
     message_id = int(request.POST.get("delete"))
     MailBox.objects.get(owner = 'admin').del_msg(message_id)
@@ -595,11 +595,8 @@ class AddAluno(View):
         username = request.POST['aluno']
         try:
             user = User.objects.get(username = username)
-            atleta = Athlete.objects.get(user = user)
-            trainer = PersonalTrainer.objects.get(user = request.user)
-            atleta.personal = trainer
-            atleta.save()
-
+            mail_box = MailBox.objects.get(owner = user.username)
+            mail_box.add_msg('{0} {1} ({2}) gostaria de ser seu professor.'.format(request.user.first_name, request.user.last_name, request.user.username), 'Novo Professor' , request.user.username)
             return HttpResponseRedirect('/alunos')
 
         except:
@@ -624,7 +621,6 @@ class ManageWorkout(View):
                 group = 'none'
 
         context_dict = {}
-        context_dict['message'] = "#VDC PVT"
         context_dict['group'] = group
 
         return render(request, 'app/manage_workout.html', context_dict)
@@ -632,3 +628,48 @@ class ManageWorkout(View):
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
         return super(ManageWorkout, self).dispatch(*args, **kwargs)
+
+class ManagePersonal(View):
+
+    def get(self, request):
+        if request.user.is_superuser:
+            group = 'admin';
+        else:
+            try:
+                group = User.objects.get(username=request.user.username).groups.all()[0].name;
+            except:
+                group = 'none'
+
+        context_dict = {}
+        context_dict['group'] = group
+        context_dict['has_personal'] =  False
+        messages = MailBox.objects.get(owner = request.user.username).messages.all()
+        print messages
+        context_dict['messages'] =  messages
+
+        athlete = Athlete.objects.get(user = request.user)
+
+        if athlete.personal is None:
+            context_dict['message'] = "Você não possui um personal trainer ainda."
+        else:
+            context_dict['message'] = "{0} {1} ({2})".format(athlete.personal.user.first_name, athlete.personal.user.last_name, athlete.personal.user.username)
+            context_dict['has_personal'] =  True
+
+        return render(request, 'app/manage_personal.html', context_dict)
+
+    def  post(self, request):
+        personal_username = request.POST.get("add_personal")
+        user_personal = User.objects.get(username = personal_username)
+        personal = PersonalTrainer.objects.get(user = user_personal)
+        athlete = Athlete.objects.get(user = request.user)
+        athlete.personal = personal
+        athlete.save()
+
+        message_id = int(request.POST.get("msg_id"))
+        MailBox.objects.get(owner = request.user.username).del_msg(message_id)
+
+        return HttpResponseRedirect('/manage_personal/')
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(ManagePersonal, self).dispatch(*args, **kwargs)
