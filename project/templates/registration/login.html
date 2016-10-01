@@ -27,9 +27,9 @@
                 {% csrf_token %}
                 <h2 class="form-login-heading">LOGIN</h2>
                 <div class="login-wrap">
-                    <input type="text" name="username" class="form-control" placeholder="User ID" autofocus>
+                    <input type="text" name="username" class="form-control" placeholder="username ou email" autofocus>
                     <br>
-                    <input type="password" name="password" class="form-control" placeholder="Password">
+                    <input type="password" name="password" class="form-control" placeholder="password">
                       {% if invalid %}
                             <br><p align = "center" style="color : red ">Usuário ou senha incorretos.</p>
                          {% endif %}

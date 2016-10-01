@@ -179,3 +179,5 @@ CORS_ALLOW_HEADERS = (
 )
 
 CORS_ALLOW_CREDENTIALS = True
+
+AUTHENTICATION_BACKENDS = ['project.backends.EmailBackend', 'django.contrib.auth.backends.ModelBackend',]

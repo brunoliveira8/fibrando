@@ -4,7 +4,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from app.models import User, Athlete, Tracker, Exercise, PersonalTrainer, BodyScreening, Gym
 from django.db.models import Q
-from registration.forms import RegistrationForm
+from registration.forms import RegistrationFormUniqueEmail
 
 class UserForm(forms.ModelForm):
     username = forms.CharField(widget=forms.TextInput(attrs={'class': "form-control"}))
@@ -97,7 +97,7 @@ class UserGenderForm(forms.Form):
         )
 
 
-class RegisterForm(RegistrationForm):
+class RegisterForm(RegistrationFormUniqueEmail):
     username = forms.CharField(widget=forms.TextInput(attrs={'class': "form-control"}), label="Usuário")
     email = forms.CharField(widget=forms.EmailInput(attrs={'class': "form-control"}))
     password1 = forms.CharField(label="Senha",widget=forms.PasswordInput(attrs={'class' : 'form-control'}))

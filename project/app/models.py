@@ -5,6 +5,7 @@ from datetime import datetime
 from registration.signals import user_registered
 from django.contrib.auth.models import Group
 from django.utils import timezone
+from django.contrib.auth import get_user_model
 
 # Create your models here.
 class Gym(models.Model):
