@@ -383,11 +383,19 @@ def permission_denied(request):
     return render(request, 'app/permission_denied.html', {'group' : group})
 
 @login_required
-@user_passes_test(lambda u: u.groups.filter(Q(name='athlete') | Q(name='trainer') | Q(name='admin')).count() == 1, login_url='/permission_denied/')
+@user_passes_test(lambda u: u.is_superuser, login_url='/permission_denied/')
 def delete_plan_msg(request):
     message_id = int(request.POST.get("delete"))
     MailBox.objects.get(owner = 'admin').del_msg(message_id)
     return HttpResponseRedirect('/plan_manage/')
+
+@login_required
+@user_passes_test(lambda u: u.groups.filter(Q(name='athlete')).count() == 1, login_url='/permission_denied/')
+def delete_athlete_msg(request):
+    message_id = int(request.POST.get("delete"))
+    MailBox.objects.get(owner = request.user.username).del_msg(message_id)
+    return HttpResponseRedirect('/manage_personal/')
+
 
 
 @login_required
@@ -592,12 +600,26 @@ class AddAluno(View):
 
     def post(self, request):
 
+        if request.user.is_superuser:
+            group = 'admin';
+        else:
+            try:
+                group = User.objects.get(username=request.user.username).groups.all()[0].name;
+            except:
+                group = 'none'
+
         username = request.POST['aluno']
+        context_dict = {}
+
         try:
             user = User.objects.get(username = username)
             mail_box = MailBox.objects.get(owner = user.username)
             mail_box.add_msg('{0} {1} ({2}) gostaria de ser seu professor.'.format(request.user.first_name, request.user.last_name, request.user.username), 'Novo Professor' , request.user.username)
-            return HttpResponseRedirect('/alunos')
+
+            context_dict['message'] = "A requisição foi enviada. Aguarde a resposta do(a) aluno(a)."
+            context_dict['group'] = group
+
+            return render(request, 'app/success_message.html', context_dict)
 
         except:
             return HttpResponseRedirect('/add_aluno')

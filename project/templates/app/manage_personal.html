@@ -45,17 +45,16 @@
               </form>
             </td>
             <td>
-
-              <form method="post" action="/delete_plan_msg/" enctype="multipart/form-data">
+              <form method="post" action="/delete_athlete_msg/" enctype="multipart/form-data">
                 {% csrf_token %}
                 <button  name='delete' type='submit' value='{{msg.id}}' class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
               </form>
             </td>
           </tr>
+          {% endfor %}
         </tbody>
+
       </table>
-    </tr>
-    {% endfor %}
   </tbody>
 </table>
 </div>
