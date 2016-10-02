@@ -419,9 +419,16 @@ def create_screening(request, username):
     user = User.objects.get(username = username)
     athlete = Athlete.objects.get(user = user)
     workout_plan = WorkoutPlan.objects.get(user = user, is_current = True)
+    permission = False
+
+    if group == 'trainer':
+        if athlete.personal is not None:
+            permission = athlete.personal.user == request.user
+    elif group == 'athlete':
+        permission = request.user == user
 
     #verifica se a requisição é feita pelo professor do aluno
-    if athlete.personal.user == request.user or request.user == user:
+    if permission:
 
         if request.method == 'POST':
             screening_form = BodyScreeningForm(data=request.POST)
@@ -493,7 +500,7 @@ def screenings(request, username = None):
 
     if athlete.personal is not None:
 
-        #verifica se a requisição é feita pelo professor do aluno
+        #verifica se a requisição é feita pelo professor do aluno ou pelo aluno
         if athlete.personal.user == request.user or request.user == user:
 
             screenings = athlete.screenings.all()
@@ -507,7 +514,7 @@ def screenings(request, username = None):
             return render(request, 'app/message.html', context_dict)
 
     else:
-            #verifica se a requisição é feita pelo professor do aluno
+            #verifica se a requisição é feita pelo aluno
             if request.user == user:
 
                 screenings = athlete.screenings.all()
