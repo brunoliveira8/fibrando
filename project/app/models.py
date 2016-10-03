@@ -209,8 +209,8 @@ def user_registered_callback(sender, user, request, **kwargs):
         personal = PersonalTrainer()
         personal.user = user
         personal.gender = request.POST['gender']
-        gym = Gym.objects.get(pk=int(request.POST['gym']))
-        personal.gym = gym
+        #gym = Gym.objects.get(pk=int(request.POST['gym']))
+        #personal.gym = gym
         personal.save()
 
 user_registered.connect(user_registered_callback)
