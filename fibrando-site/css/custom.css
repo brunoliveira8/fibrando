@@ -1,0 +1,60 @@
+
+.subscribe-section {
+  text-align: center;
+  padding: 0px 0;
+  background-size: cover;
+  color: white;
+}
+.subscribe-section .row.row-padding {
+  padding-top: 20px;
+}
+.subscribe-section h2,
+.subscribe-section .h2 {
+  color: white;
+}
+@media screen and (max-width: 320px) {
+  .subscribe-section h2,
+  .subscribe-section .h2 {
+    font-size: 28px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .col-subscribe {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+  }
+}
+@media screen and (max-width: 320px) {
+  .col-subscribe {
+    width: 100%;
+  }
+}
+.subscribe-form {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+@media screen and (min-width: 768px) {
+  .subscribe-form.form-inline .form-control {
+    width: 300px;
+  }
+}
+@media screen and (max-width: 640px) {
+  .subscribe-form .btn {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+}
+
+.subscribe-description {
+  padding-bottom: 20px;
+}
+
+.custom-form{
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
