@@ -132,4 +132,5 @@ class RegisterForm(RegistrationFormUniqueEmail):
 class SubscribeForm(forms.ModelForm):
     class Meta:
         model = Subscribe
+        fields = ('name', 'email')
 
