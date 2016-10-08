@@ -2,7 +2,7 @@
 from django import forms
 from django.db import models
 from django.contrib.auth.models import User
-from app.models import User, Athlete, Tracker, Exercise, PersonalTrainer, BodyScreening, Gym
+from app.models import User, Athlete, Tracker, Exercise, PersonalTrainer, BodyScreening, Gym, Subscribe
 from django.db.models import Q
 from registration.forms import RegistrationFormUniqueEmail
 
@@ -128,3 +128,8 @@ class RegisterForm(RegistrationFormUniqueEmail):
         model = User
         #fields = ('username','password1','password2', 'email', 'gender', 'group', 'gym')
         fields = ('username','password1','password2', 'email', 'gender', 'group')
+
+class SubscribeForm(forms.ModelForm):
+    class Meta:
+        model = Subscribe
+

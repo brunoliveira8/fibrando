@@ -3,7 +3,7 @@ from django.conf.urls import patterns, url
 from app import views
 
 urlpatterns = patterns('',
-        url(r'^$', views.index),
+        url(r'^$', views.home, name="home"),
         url(r'^index/', views.index, name="index"),
         url(r'^edit/', views.edit),
         url(r'^tracker/', views.tracker),
@@ -27,4 +27,5 @@ urlpatterns = patterns('',
         url(r'^add_aluno/$', views.AddAluno.as_view()),
         url(r'^manage_workout/(?P<username>\w+)/$', views.ManageWorkout.as_view()),
         url(r'^manage_personal/', views.ManagePersonal.as_view()),
+        url(r'^subscribe/', views.SubscribeView.as_view(), name='subscribe'),
 )

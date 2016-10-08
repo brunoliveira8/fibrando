@@ -172,6 +172,13 @@ class MailBox(models.Model):
     def del_msg(self, id):
         Message.objects.filter(id = id).delete()
 
+class Subscribe(models.Model):
+    name = models.CharField(max_length=300)
+    email = models.CharField(max_length=300)
+
+    def __unicode__(self):
+            return u'%s' % (self.email)
+
 #end Message System
 
 #Business Logic

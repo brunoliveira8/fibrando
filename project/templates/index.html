@@ -1,0 +1,420 @@
+
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>FIBRANDO</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Ficha de treino e avaliações física online!" />
+    <meta name="keywords" content="fitness health treino exercícios academia" />
+    <meta name="author" content="Startup Factor" />
+
+      <!--
+    	//////////////////////////////////////////////////////
+
+    	FREE HTML5 TEMPLATE
+    	DESIGNED & DEVELOPED by FREEHTML5.CO
+
+    	Website: 		http://freehtml5.co/
+    	Email: 			info@freehtml5.co
+    	Twitter: 		http://twitter.com/fh5co
+    	Facebook: 		https://www.facebook.com/fh5co
+
+    	//////////////////////////////////////////////////////
+    -->
+
+    <!-- Facebook and Twitter integration -->
+    <meta property="og:title" content=""/>
+    <meta property="og:image" content=""/>
+    <meta property="og:url" content=""/>
+    <meta property="og:site_name" content=""/>
+    <meta property="og:description" content=""/>
+    <meta name="twitter:title" content="" />
+    <meta name="twitter:image" content="" />
+    <meta name="twitter:url" content="" />
+    <meta name="twitter:card" content="" />
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="shortcut icon" href= "{% static "img/landing/favicon.jpg" %}" >
+
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600,400italic,700' rel='stylesheet' type='text/css'>
+
+    <!-- Animate.css -->
+    <link href="{% static "css/landing/animate.css" %}" rel="stylesheet">
+    <!-- Icomoon Icon Fonts-->
+    <link href="{% static "css/landing/icomoon.css" %}" rel="stylesheet">
+    <!-- Simple Line Icons -->
+    <link href="{% static "css/landing/simple-line-icons.css" %}" rel="stylesheet">
+    <!-- Owl Carousel -->
+    <link href="{% static "css/landing/owl.carousel.min.css" %}" rel="stylesheet">
+    <link href="{% static "css/landing/owl.theme.default.min.css" %}" rel="stylesheet">
+    <!-- Bootstrap  -->
+    <link href="{% static "css/landing/bootstrap.css" %}" rel="stylesheet">
+
+    	<!--
+    	Default Theme Style
+    	You can change the style.css (default color purple) to one of these styles
+
+    	1. pink.css
+    	2. blue.css
+    	3. turquoise.css
+    	4. orange.css
+    	5. lightblue.css
+    	6. brown.css
+    	7. green.css
+
+    -->
+    <link href="{% static "css/landing/style.css" %}" rel="stylesheet">
+
+    <link href="{% static "css/landing/custom.css" %}" rel="stylesheet">
+
+
+    <!-- Modernizr JS -->
+    <script src= "{% static "js/landing/modernizr-2.6.2.min.js" %}"></script>
+    <!-- FOR IE9 below -->
+    	<!--[if lt IE 9]>
+    	<script src="js/respond.min.js"></script>
+    	<![endif]-->
+
+    </head>
+    <body>
+     <header role="banner" id="fh5co-header">
+       <div class="container">
+        <!-- <div class="row"> -->
+        <nav class="navbar navbar-default">
+          <div class="navbar-header">
+           <!-- Mobile Toggle Menu Button -->
+           <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
+           <a class="navbar-brand" href="index.html">FIBRANDO</a>
+       </div>
+       <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a href="#" data-nav-section="home"><span>Home</span></a></li>
+          <li><a href="#" data-nav-section="demo"><span>Demo</span></a></li>
+          <li><a href="#" data-nav-section="vantagens"><span>Vantagens</span></a></li>
+          <li><a href="#" data-nav-section="inscreva"><span>Inscreva-se</span></a></li>
+          <li><a href="#" data-nav-section="parceiro"><span>Torne-se um parceiro</span></a></li>
+          <li class="custom-button"><a href="http://fibrando.startupfactor.com.br/"><button class="btn btn-sm btn-primary">Login</button></a></li>
+      </ul>
+  </div>
+</nav>
+<!-- </div> -->
+</div>
+</header>
+
+<div id="slider" data-section="home">
+  <div class="owl-carousel owl-carousel-fullwidth">
+   <!-- You may change the background color here. -->
+   <div class="item" style="background: #352f44;">
+       <div class="container" style="position: relative;">
+        <div class="row">
+         <div class="col-md-7 col-sm-7">
+          <div class="fh5co-owl-text-wrap">
+           <div class="fh5co-owl-text">
+            <h1 class="fh5co-lead to-animate">Ficha online</h1>
+            <h2 class="fh5co-sub-lead to-animate">Sua ficha junto com você na tela do seu smartphone.</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-md-push-1 col-sm-4 col-sm-push-1 iphone-image">
+      <div class="iphone to-animate-2"><img src="{% static "img/landing/iphone-1-ed.png" %}" alt="Ficha de Treino"></div>
+  </div>
+
+</div>
+</div>
+</div>
+<!-- You may change the background color here.  -->
+<div class="item" style="background: #38569f;">
+   <div class="container" style="position: relative;">
+    <div class="row">
+     <div class="col-md-7 col-md-push-1 col-md-push-5 col-sm-7 col-sm-push-1 col-sm-push-5">
+      <div class="fh5co-owl-text-wrap">
+       <div class="fh5co-owl-text">
+        <h1 class="fh5co-lead to-animate">Histórico de avaliações</h1>
+        <h2 class="fh5co-sub-lead to-animate">Carregue com você um histórico com todas as suas avaliações físicas.</h3>
+        </div>
+    </div>
+</div>
+<div class="col-md-4 col-md-pull-7 col-sm-4 col-sm-pull-7 iphone-image">
+  <div class="iphone to-animate-2"><img src="{% static "img/landing/iphone-3-ed.png" %}" alt="Avaliações Física"></div>
+</div>
+
+</div>
+</div>
+</div>
+
+<div class="item" style="background-image:url({% static "img/landing/slide_5.jpg" %})">
+   <div class="overlay"></div>
+   <div class="container" style="position: relative;">
+    <div class="row">
+     <div class="col-md-8 col-md-offset-2 text-center">
+      <div class="fh5co-owl-text-wrap">
+       <div class="fh5co-owl-text">
+        <h1 class="fh5co-lead to-animate">Teste Agora!</h1>
+        <h2 class="fh5co-sub-lead to-animate">Teste a demo do Fibrando e confira todos os benefícios que ele trará ao seu treino.</a></h3>
+         <p class="to-animate-2"><a href="#"class="btn btn-primary btn-lg" data-nav-section="demo">Demo</a></p>
+     </div>
+ </div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div id="fh5co-about-us" data-section="demo">
+  <div class="container">
+   <div class="row row-bottom-padded-lg" id="about-us">
+    <div class="col-md-12 section-heading text-center">
+     <h2 class="to-animate">Experimente o Fibrando!</h2>
+     <div class="row">
+      <div class="col-md-8 col-md-offset-2 to-animate">
+       <h3>Teste a plataforma antes mesmo de se cadastrar.</h3>
+   </div>
+</div>
+</div>
+<div class="col-md-8 to-animate">
+ <img src="{% static "img/landing/tela-avaliacao.png" %}" class="img-responsive img-rounded" alt="Free HTML5 Template">
+</div>
+<div class="col-md-4 to-animate">
+ <h2>Contas de demonstração</h2>
+ <!--<p>FIBRANDO veio com a proposta de abolir o uso das fichas de papel criando um ambiente onde a comunicação entre professores e alunos seja fácil e rápida. Com informações de treinos passados, histórico de avaliação física e metabólica profissionais serão capazes de criar programas mais efetivos para seus alunos.</p>-->
+ <p>Para testar a demo como professor:<br/><b>Usuário: professor<br/>Senha: 123</b></p>
+ <p>Para testar a demo como aluno:<br/><b>Usuário: aluno<br/>Senha: 123</b></p>
+ <p><a href="{% url "index" %}" class="btn btn-primary">Testar Demo</a></p>
+</div>
+</div>
+
+
+<div id="fh5co-features" data-section="vantagens">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 section-heading text-center">
+                <h2 class="single-animate animate-features-1">Vantagens</h2>
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2 single-animate animate-features-2">
+                        <h3>Conheça algumas das vantagens de usar o Fibrando caso você seja um aluno, personal trainer ou representante de uma academia.</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row row-bottom-padded-sm">
+            <div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 fh5co-service to-animate">
+                <div class="fh5co-icon"><i class="icon-rocket"></i></div>
+                <div class="fh5co-desc">
+                    <h3>Alunos</h3>
+                    <p>Se você é aluno em alguma academia fibrando irá proporcionar uma melhor comunicação com seu treinador, melhor acompanhamento de seus resultados e uma ficha de treino eletrônica. Tudo isso    tornará seus treinos bem mais personalizados e efetivos.</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 fh5co-service to-animate">
+                <div class="fh5co-icon"><i class="icon-eye"></i></div>
+                <div class="fh5co-desc">
+                    <h3>Personal Trainer</h3>
+                    <p>O sistema proporciona um controle mais efetivo da rotina de treino de seus alunos, incluindo monitoriamento de resultados, um histórico do aluno e avalaição física e metabólica de fácil visualização.</p>
+                </div>
+            </div>
+            <div class="clearfix visible-sm-block visible-xs-block"></div>
+            <div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 fh5co-service to-animate">
+                <div class="fh5co-icon"><i class="icon-users "></i></div>
+                <div class="fh5co-desc">
+                    <h3>Academias</h3>
+                    <p>Para academias o sistema proporciona substituição das fichas de papel por fichas eletrônicas, monitoramento dos resultados dos alunos, controle mais efetivo das atividades dos alunos através de estátisticas e informações sobre estes e avaliação física e matabólica de fácil vizualização.</p>
+                </div>
+            </div>
+            <div class="clearfix visible-sm-block visible-xs-block"></div>
+
+            <div class="clearfix visible-sm-block visible-xs-block"></div>
+        </div>
+    </div>
+</div>
+
+<div id="fh5co-features" data-section="inscreva">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 section-heading text-center">
+                <h2 class="single-animate animate-features-1">Gostou? Crie uma conta gratuita!</h2><br>
+                <div style="text-align: center" class="col-md-8 col-md-offset-2 fh5co-service to-animate">
+                 <a href="http://fibrando.startupfactor.com.br/accounts/register/"><button class="btn btn-primary btn-lg">Criar conta</button></a>
+             </div>
+         </div>
+
+     </div>
+ </div>
+</div>
+
+<div class="row" id="team">
+    <div class="col-md-12 section-heading text-center to-animate">
+     <h2>Equipe</h2>
+ </div>
+ <div class="col-md-12">
+     <div class="row row-bottom-padded-lg">
+      <div class="col-md-4 text-center to-animate">
+       <div class="person">
+        <img src="{% static "img/landing/bruno.JPG" %}" class="img-responsive img-rounded" alt="Person">
+        <h3 class="name">Bruno Oliveira</h3>
+        <div class="position">Sócio</div>
+        <p>Graduando em Engenharia da Computação pela Universidade do Ceará, é apaixonado por empreendedorismo e programação.</p>
+        <ul class="social social-circle">
+                                                                                                            <!--
+									<li><a href="#"><i class="icon-twitter"></i></a></li>
+									<li><a href="#"><i class="icon-linkedin"></i></a></li>
+									<li><a href="#"><i class="icon-instagram"></i></a></li>
+                                -->
+                                <li><a href="http://brunoliveira8.github.io/"><i class="icon-github"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-center to-animate">
+                       <div class="person">
+                        <img src="{% static "img/landing/italo.JPG" %}" class="img-responsive img-rounded" alt="Person">
+                        <h3 class="name">Italo Sousa</h3>
+                        <div class="position">Sócio</div>
+                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics.</p>
+                        <ul class="social social-circle">
+                         <li><a href="#"><i class="icon-twitter"></i></a></li>
+                         <li><a href="#"><i class="icon-linkedin"></i></a></li>
+                         <li><a href="#"><i class="icon-instagram"></i></a></li>
+                         <li><a href="#"><i class="icon-dribbble"></i></a></li>
+                     </ul>
+                 </div>
+             </div>
+             <div class="col-md-4 text-center to-animate">
+               <div class="person">
+                <img src="{% static "img/landing/matheus.JPG" %}" class="img-responsive img-rounded" alt="Person">
+                <h3 class="name">Matheus Fortes</h3>
+                <div class="position">Sócio</div>
+                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics.</p>
+                <ul class="social social-circle">
+                 <li><a href="#"><i class="icon-twitter"></i></a></li>
+                 <li><a href="#"><i class="icon-linkedin"></i></a></li>
+                 <li><a href="#"><i class="icon-instagram"></i></a></li>
+                 <li><a href="#"><i class="icon-github"></i></a></li>
+             </ul>
+         </div>
+     </div>
+ </div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="fh5co-testimonials" data-section="parceiro">
+  <div class="container">
+   <div class="row">
+    <div class="col-md-12 section-heading text-center">
+     <h2 class="to-animate">Torne-se um parciero</h2>
+     <div class="row">
+      <div class="col-md-8 col-md-offset-2 subtext to-animate">
+       <h3 id="subscribeMsg">Gostou da nossa solução e quer aplicá-la de forma personalizada em sua academia? Preencha o formulário abaixo que nossa equipe entrará em contato com você</h3>
+   </div>
+</div>
+</div>
+</div>
+
+<section class="subscribe-section">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="container">
+                <div class="row">
+                    <div class=" col-md-12">
+                        <!-- Subscribe form -->
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-3 col-subscribe">
+                                <form class="subscribe-form" id="subscribeForm" role="form" method="post" action="">
+                                  <!-- Input -->
+                                  {% csrf_token %}
+                                  <div class="form-group custom-form">
+                                      <label class="sr-only">Nome</label>
+                                      <input type="text" class="form-control" name="name" placeholder="Nome" required="required">
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="sr-only" for="email">Email address</label>
+                                    <input type="email" class="form-control" name="email" placeholder="Email" required="required"   >
+                                </div>
+                                <button class="btn btn-success" id="subscribeBtn" >Enviar</button>
+                            </form> <!-- /.subscribe-form -->
+                            <section id="subscribeAlert"class="subscribe-description">
+                                <p>Não se preocupe, não lotaremos sua sua caixa de entrada com spam :)</p>
+                            </section> <!-- /.subscribe-description -->
+                        </div> <!-- /.col-md-6 -->
+                    </div> <!-- /.row -->
+                </div> <!-- /.col-md-12 -->
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+    </div>
+</div>
+</section>
+</div>
+</div>
+
+
+<footer id="footer" role="contentinfo">
+  <div class="container">
+   <div class="row row-bottom-padded-sm">
+    <div class="col-md-12">
+        <p class="copyright text-center">&copy; 2016 <a href="#">Startup Factor</a>. All Rights Reserved.</p>
+ </div>
+</div>
+<div class="row">
+    <div class="col-md-12 text-center">
+     <ul class="social social-circle">
+      <!--
+      <li><a href="#"><i class="icon-twitter"></i></a></li>
+      <li><a href="#"><i class="icon-youtube"></i></a></li>
+      <li><a href="#"><i class="icon-pinterest"></i></a></li>
+      <li><a href="#"><i class="icon-linkedin"></i></a></li>
+      <li><a href="#"><i class="icon-instagram"></i></a></li>
+      <li><a href="#"><i class="icon-dribbble"></i></a></li>
+       -->
+      <li><a href="#"><i class="icon-facebook"></i></a></li>
+  </ul>
+</div>
+</div>
+</div>
+</footer>
+
+
+<!-- jQuery -->
+<script src="{% static "js/landing/jquery.min.js" %}"></script>
+<!-- jQuery Easing -->
+<script src="{% static "js/landing/jquery.easing.1.3.js" %}"></script>
+<!-- Bootstrap -->
+<script src="{% static "js/landing/bootstrap.min.js" %}"></script>
+<!-- Waypoints -->
+<script src="{% static "js/landing/jquery.waypoints.min.js" %}"></script>
+<!-- Owl Carousel -->
+<script src="{% static "js/landing/owl.carousel.min.js" %}"></script>
+
+
+
+<!-- Main JS (Do not remove) -->
+<script src="{% static "js/landing/main.js" %}"></script>
+
+<script type="text/javascript">
+$('#subscribeBtn').click( function(e) {
+     e.preventDefault();
+     $.ajax({
+        url: "{% url "subscribe" %}",
+        type: 'post',
+        dataType: 'json',
+        data: $('#subscribeForm').serialize(),
+        success: function(data) {
+                   if (data.status == "sucesso") {
+                    $( "#subscribeForm" ).hide();
+                    $( "#subscribeAlert" ).hide();
+                    $( "#subscribeMsg" ).html("<span style='color: white'>Obrigado pelo interesse! Entraremos em contato em breve.<span>");
+                   }
+                   else if (data.status == "falhou") alert("Desculpe, algo errado ocorreu. Tente novamente.")
+                 }
+    });
+});
+
+
+</script>
+
+</body>
+</html>

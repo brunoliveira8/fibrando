@@ -2,7 +2,7 @@
 from __future__ import division
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponseRedirect, HttpResponse, JsonResponse
 from django.contrib.auth.decorators import login_required, permission_required, user_passes_test
 from app.models import Athlete, Task, User, Tracker, Exercise, WorkoutPlan, MailBox,  PersonalTrainer, BodyScreening
 from app.forms import *
@@ -18,6 +18,9 @@ from django.utils.decorators import method_decorator
 
 # Create your views here.
 #This is the First Page's view.
+def home(request):
+    return render(request, 'index.html')
+
 @login_required
 def index(request):
 
@@ -708,3 +711,15 @@ class ManagePersonal(View):
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
         return super(ManagePersonal, self).dispatch(*args, **kwargs)
+
+class SubscribeView(View):
+    def post(self, request):
+        form = SubscribeForm(request.POST)
+        print form
+        if form.is_valid():
+
+            subs = form.save()
+            return JsonResponse({'status':'sucesso'})
+        else:
+            return JsonResponse({'status':'falhou'})
+
