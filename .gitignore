@@ -69,3 +69,4 @@ share/
 pip-selfcheck.json
 
 .tags*
+.DS_Store
