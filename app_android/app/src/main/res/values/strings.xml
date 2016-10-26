@@ -11,4 +11,11 @@
     <string name="action_example">Example action</string>
 
     <string name="action_settings">Settings</string>
+
+    <string-array name="teste">
+        <item>Exercicio 1</item>
+        <item>Exercicio 2</item>
+        <item>Exercicio 3</item>
+        <item>Exercicio 4</item>
+    </string-array>
 </resources>
