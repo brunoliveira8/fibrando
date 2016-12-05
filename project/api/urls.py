@@ -2,6 +2,7 @@ from django.conf.urls import url
 from rest_framework.urlpatterns import format_suffix_patterns
 from api import views
 from rest_framework import routers
+from rest_framework.authtoken import views as rf_views
 
 urlpatterns = [
     url(r'^tasks/$',  views.TaskList.as_view()),
@@ -12,7 +13,8 @@ urlpatterns = [
     url(r'^screenings/(?P<username>\w+)/(?P<pk>[0-9]+)/$', views.screenings_detail),
     url(r'^alunos/$',  views.alunos),
     url(r'^current_workout_plan/(?P<username>\w+)/$',  views.current_workout_plan),
-   
+    url(r'^token-auth/', rf_views.obtain_auth_token)
+
     #url(r'^tasks/(?P<pk>[0-9]+)$', views.task_detail),
 ]
 

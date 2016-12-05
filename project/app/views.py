@@ -79,7 +79,7 @@ def edit(request):
             return HttpResponseRedirect("/index/")
 
         else:
-            print user_form.errors
+            return HttpResponseRedirect("/index/")
 
     else:
 

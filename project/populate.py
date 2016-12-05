@@ -8,8 +8,8 @@ django.setup()
 from app.models import Task, MailBox, Gym
 from django.contrib.auth.models import Permission, Group, User
 from django.contrib.contenttypes.models import ContentType
+from rest_framework.authtoken.models import Token
 import csv
-
 
 
 def populate():
@@ -52,10 +52,12 @@ def populate():
 
     print Task.objects.all()
 
+
 def add_task(name):
-    a = Task.objects.get_or_create(name = name)[0]
+    a = Task.objects.get_or_create(name=name)[0]
     a.save()
     return a
+
 
 def add_tasks():
     with open('exercicios.csv', 'rb') as f:
@@ -63,25 +65,38 @@ def add_tasks():
         for row in reader:
             add_task(row[0])
 
+
 def add_group(name):
-    g = Group.objects.get_or_create(name = name)[0]
+    g = Group.objects.get_or_create(name=name)[0]
     g.save()
+
 
 def add_permission(codename, name):
     content_type = ContentType.objects.get_for_model(Permission)
-    p = Permission.objects.get_or_create(codename = codename, content_type = content_type)[0]
+    p = Permission.objects.get_or_create(
+        codename=codename, content_type=content_type)[0]
     p.name = name
     p.save()
 
+
 def add_mail_box(owner):
-    g = MailBox.objects.get_or_create(owner = owner)[0]
+    g = MailBox.objects.get_or_create(owner=owner)[0]
     g.save()
 
+
 def add_gym(name):
-    g = Gym.objects.get_or_create(name = name)[0]
+    g = Gym.objects.get_or_create(name=name)[0]
     g.save()
+
+
+def create_tokens():
+    for user in User.objects.all():
+        Token.objects.get_or_create(user=user)
+
+
 
 # Start execution here!
 if __name__ == '__main__':
     print "Starting population script..."
-    populate()
+    # populate()
+    create_tokens()
