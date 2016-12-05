@@ -17,16 +17,15 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
 
-        <ListView
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/teste"
+            android:scrollbars="vertical"
             android:layout_width="match_parent"
-            android:layout_height="393dp"
-            android:id="@+id/expandableListView"
-            android:choiceMode="none"
-            android:entries="@array/teste"
-            >
+            android:layout_height="match_parent"
+            />
 
-
-        </ListView>
 
 
     </LinearLayout>
