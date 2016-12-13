@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout, $http) {
+.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -10,7 +10,9 @@ angular.module('starter.controllers', [])
   //});
 
   // Form data for the login modal
-  $scope.loginData = {};
+  $scope.loginData = [
+    { userName: 'aluno', passWord: '123'}
+  ];
 
   // Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('templates/login.html', {
@@ -32,29 +34,6 @@ angular.module('starter.controllers', [])
   // Perform the login action when the user submits the login form
   $scope.doLogin = function() {
     console.log('Doing login', $scope.loginData);
-    
-    var username=$scope.loginData.username;
-    var password=$scope.loginData.password;
-
-    $http({
-      method: 'GET',
-      url: 'http://127.0.0.1:8000/api/token-auth',
-       headers: {
-           'Content-Type': 'application/json'
-        },
-      data: {'username':username, 'password':password},
-
-    }).then(function successCallback(response) {
-        // this callback will be called asynchronously
-        // when the response is available
-        console.log(response);
-
-      }, function errorCallback(response) {
-        // called asynchronously if an error occurs
-        // or server returns response with an error status.
-      });
-
-
 
     // Simulate a login delay. Remove this and replace with your login
     // code if using a login system
@@ -76,4 +55,20 @@ angular.module('starter.controllers', [])
 })
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
+})
+
+
+.controller('ExercisesCtrl', function($http){
+    var data = $http({
+      method : 'POST',
+      url : 'http://fibrando.startupfactor.com.br/api/exercises/',
+      params : {userName: 'aluno', passWord: '123'}
+    }).then(function(response){
+      
+      alert('aqui');
+      console.log(response);
+    
+    }, function(response){
+
+    });
 });
